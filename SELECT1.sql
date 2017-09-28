@@ -1,0 +1,5 @@
+SELECT A.NAME
+FROM COUNTRY a LEFT JOIN CITY i ON a.countryid = i.countryid
+GROUP BY a.countryid
+HAVING SUM(POPULATION)>100;
+

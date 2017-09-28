@@ -1,0 +1,36 @@
+CREATE TABLE Country (
+  CountryID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  Name VARCHAR(30) NOT NULL
+  );
+CREATE TABLE City (
+  CityID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  CountryID INT(6) UNSIGNED NOT NULL,
+  Name VARCHAR(30) NOT NULL,
+  Population INT(10) NOT NULL,
+  INDEX (CountryID),
+  FOREIGN KEY (CountryID)
+      REFERENCES Country(CountryID)
+  ); 
+CREATE TABLE Building (
+  BuildingID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  CityID INT(6) UNSIGNED NOT NULL,
+  Name VARCHAR(30) NOT NULL,
+  Floors INT(10) NOT NULL,
+  INDEX (CityID),
+  FOREIGN KEY (CityId)
+      REFERENCES City(CityID)
+  ); 
+INSERT INTO Country (Name) VALUES("USA");
+INSERT INTO City (CountryID,Name,Population) VALUES(1,"Boston",200);
+INSERT INTO Building (CityID,Name,Floors) VALUES(1,"Cool",3);
+INSERT INTO Building (CityID,Name,Floors) VALUES(1,"Extra",4);
+INSERT INTO City (CountryID,Name,Population) VALUES(1,"New York",300);
+INSERT INTO Building (CityID,Name,Floors) VALUES(2,"WTC",13);
+INSERT INTO Country (Name) VALUES("Poland");
+INSERT INTO City (CountryID,Name,Population) VALUES(2,"Warsaw",200);
+INSERT INTO City (CountryID,Name,Population) VALUES(2,"Cracow",201);
+INSERT INTO Country (Name) VALUES("Spain");
+INSERT INTO City (CountryID,Name,Population) VALUES(3,"Madrit",200);
+INSERT INTO City (CountryID,Name,Population) VALUES(3,"Barcelona",200);
+INSERT INTO Building (CityID,Name,Floors) VALUES(6,"Sankt",2);
+INSERT INTO Country (Name) VALUES("Germany");
